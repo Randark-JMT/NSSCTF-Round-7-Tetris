@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="Axu Wei" />
+    <title>Wasm Tetris</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Helvetica, Arial, sans-serif;
+        margin: 0;
+      }
+      h1 {
+        font-weight: 100;
+      }
+      canvas {
+        padding: 2px;
+        border: 1px solid #333;
+      }
+      canvas:focus {
+        outline: 1px solid springgreen;
+      }
+      code {
+        font-family: consolas, courier, monospace;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>NSSCTF Round#7 Tetris</h1>
+    <p id="p-canvas"></p>
+    <p>
+      <code>
+        click & focus on the canvas to play
+        <br />
+        left/rotate/right/speedup: '←/↑/→/↓' or 'j/i/l/k' or 'a/w/d/s'
+        <br />
+        drop: enter/space, pause: p, restart: r
+        <br />
+        Go for it and work towards 100,000 points!
+      </code>
+    </p>
+    <p>
+      <code>
+        Hacked by randark
+      </code>
+    </p>
+    <script type="module">
+      import { make_tetris, default as init } from './pkg/wasm_tetris.js'
+      async function run() {
+        await init('./pkg/wasm_tetris_bg.wasm')
+        document.getElementById('p-canvas').appendChild(make_tetris(15, 12, 25))
+      }
+      run()
+    </script>
+  </body>
+</html>
