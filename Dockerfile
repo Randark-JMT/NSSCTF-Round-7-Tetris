@@ -1,4 +1,4 @@
-FROM rust:1.66.1-slim-buster AS wasm-pack
+FROM rust:1.66.1-slim-buster
 
 LABEL auther="Randark_JMT"
 EXPOSE 8080
@@ -20,16 +20,6 @@ COPY ./docker/bin/start.sh /root/start.sh
 RUN chmod +x /root/start.sh 
 
 WORKDIR /app
-
-ENV FLAG=NSSCTF{}
-RUN sed -i "s@aabbccflagccbbaa@$FLAG@g" ./src/lib.rs
 RUN wasm-pack build --mode no-install --out-dir examples/pkg --target web
 
-# deploy
-FROM python:3.10-slim-bullseye
-
-COPY --from=wasm-pack /app/examples /app
-
-COPY ./service/start.sh /app
-
-ENTRYPOINT [ "/bin/sh","/app/start.sh" ]
+ENTRYPOINT [ "/bin/sh","/root/start.sh" ]
