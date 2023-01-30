@@ -15,6 +15,7 @@
 ## 参考资料
 - [xuu / wasm-tetris 原项目](https://github.com/xuu/wasm-tetris)
 - [rustwasm / wasm-pack 项目技术栈](https://github.com/rustwasm/wasm-pack/)
+- [anvie / litcrypt.rs 加密静态字符串的Rust宏](https://github.com/anvie/litcrypt.rs)
 
 ## 环境部署
 项目已给出`Dockerfile`，直接执行`docker build`即可构建镜像。
