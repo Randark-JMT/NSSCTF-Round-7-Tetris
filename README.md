@@ -6,6 +6,8 @@
 - 基于`Rust`和`Webassembly`所编写的web小游戏
   
 ## 解题流程
+[视频讲解 - Bilibili](https://www.bilibili.com/video/BV1Ps4y1x7gw/)
+
 本题有两种解题思路：
 
 1. 通过`Cheat Engine`这类内存修改工具，定位储存游戏分数的变量，直接改分
