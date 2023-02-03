@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 ENV LITCRYPT_ENCRYPT_KEY="mpdoloumclitaametmodloheiriure"
 
-COPY ./service/config /usr/local/cargo/
+# COPY ./service/config /usr/local/cargo/
 
 RUN cargo install wasm-pack
 RUN cargo install wasm-bindgen-cli
